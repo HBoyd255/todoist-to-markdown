@@ -52,6 +52,7 @@ with open(project_csv, "r", encoding=ENCODING) as csv_file:
             item_type = row["TYPE"]
             item_name = row["CONTENT"]
             item_description = row["DESCRIPTION"]
+            due_date = row["DATE"]
 
             # If the item is a section, write it as a header.
             if item_type == "section":
@@ -77,8 +78,16 @@ with open(project_csv, "r", encoding=ENCODING) as csv_file:
                 if completable:
                     md_file.write("- [ ] ")
 
-                # Write the task name.
+                # Write the task name in bold.
+                md_file.write("**")
                 md_file.write(item_name)
+                md_file.write("**")
+
+                # If the task has a due date, write it as a comment.
+                if due_date:
+                    md_file.write(" (Due ")
+                    md_file.write(due_date)
+                    md_file.write(")")
 
                 # If the task has a description, write it as a comment.
                 if item_description:
