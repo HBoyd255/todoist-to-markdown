@@ -14,16 +14,13 @@ creation_date = date.today().strftime("%d/%m/%Y")
 creation_credit = "https://github.com/HBoyd255/todoist-to-markdown"
 
 
-# # If no arguments are provided, print usage
-# if len(sys.argv) != 2:
-#     print("Please provide the input csv file as an argument.")
-#     sys.exit()
-#
-# # Get the file name of the input csv file
-# project_csv = sys.argv[1]
+# If no arguments are provided, print usage
+if len(sys.argv) != 2:
+    print("Please provide the input csv file as an argument.")
+    sys.exit()
 
-
-project_csv = "Demo.csv"
+# Get the file name of the input csv file
+project_csv = sys.argv[1]
 
 # Get the project name from the csv file name.
 project_name = project_csv.split(".")[0]
