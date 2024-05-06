@@ -73,8 +73,8 @@ with open(project_csv, "r", encoding=ENCODING) as csv_file:
                 if not completable:
                     item_name = item_name[2:]
 
-                # Remove any labels from the item name.
-                item_name = item_name.split("@")[0]
+                # # Remove any labels from the item name.
+                item_name = item_name.split(" @")[0]
 
                 # If the task is completable, add a checkbox.
                 if completable:
@@ -83,5 +83,11 @@ with open(project_csv, "r", encoding=ENCODING) as csv_file:
                 # Write the task name.
                 md_file.write(item_name)
 
-                ## Add two new lines to separate the task
+                # If the task has a description, write it as a comment.
+                if item_description:
+                    md_file.write("\n<!-- ")
+                    md_file.write(item_description)
+                    md_file.write(" -->")
+
+                ## Add two new lines to separate tasks.
                 md_file.write("\n\n")
