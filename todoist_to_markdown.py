@@ -1,3 +1,4 @@
+from datetime import date
 import sys
 import csv
 
@@ -5,10 +6,6 @@ import csv
 
 ENCODING = "utf-8-sig"
 
-SECTION_HEADER_LEVEL = 2
-SECTION_HEADER = SECTION_HEADER_LEVEL * "#" + " "
-
-from datetime import date
 
 creation_date = date.today().strftime("%d/%m/%Y")
 creation_credit = "https://github.com/HBoyd255/todoist-to-markdown"
@@ -56,7 +53,7 @@ with open(project_csv, "r", encoding=ENCODING) as csv_file:
 
             # If the item is a section, write it as a header.
             if item_type == "section":
-                md_file.write(SECTION_HEADER)
+                md_file.write("##")
                 md_file.write(item_name)
                 md_file.write("\n\n")
 
