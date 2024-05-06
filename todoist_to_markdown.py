@@ -20,9 +20,13 @@ if len(sys.argv) != 2:
 project_csv = sys.argv[1]
 
 # Get the project name from the csv file name.
-project_name = project_csv.split(".")[0]
+file_path = project_csv.split(".")[0]
+
+# Get the project name from the file path.
+project_name = file_path.split("\\")[-1]
 
 # Create the output markdown file name.
+# The output file will be in the same directory as this script.
 project_md = project_name + ".md"
 
 # Open the csv file and read the contents.
