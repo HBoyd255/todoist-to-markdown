@@ -57,7 +57,7 @@ with open(project_csv, "r", encoding=ENCODING) as csv_file:
 
             # If the item is a section, write it as a header.
             if item_type == "section":
-                md_file.write("##")
+                md_file.write("## ")
                 md_file.write(item_name)
                 md_file.write("\n\n")
 
